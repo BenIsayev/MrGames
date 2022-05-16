@@ -15,11 +15,9 @@
             <span v-if="descDisplayed" class="full-desc">{{ game.description }}</span>
         </span>
 
-        <img :src="game.screenshots[0].image" alt="game image">
-
-        <img :src="game.screenshots[1].image" alt="game image">
-        <img :src="game.screenshots[2].image" alt="game image">
-        <img :src="game.screenshots[3].image" alt="game image">
+        <div v-for="img in game.screenshots">
+            <img :src="img.image" alt="">
+        </div>
     </section>
     <section v-else class="game-details">
         Loading game

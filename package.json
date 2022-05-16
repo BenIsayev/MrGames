@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "vue": "^3.2.33",
+    "vue-concise-slider": "^4.2.5",
     "vue-flux": "^6.4.0",
     "vue-router": "^4.0.14"
   },

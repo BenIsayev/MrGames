@@ -36,14 +36,17 @@ export default {
             },
             pageSize: 20,
             currPage: 1,
+            lastPage: 0,
         }
     },
     methods: {
         setFilter(term) {
             this.searchFilter = term
+            this.lastPage = Math.ceil(this.filteredGames.length / this.pageSize)
         },
         setPage(dir) {
             const lastPage = Math.ceil(this.filteredGames.length / this.pageSize)
+            this.lastPage = lastPage
             if (this.currPage === lastPage && dir === 1) {
                 this.currPage = 1
                 return
@@ -69,5 +72,13 @@ export default {
         }
     },
     unmounted() { },
+    watch: {
+        'lastPage': {
+            handler() {
+                if (this.lastPage < this.currPage) this.currPage = this.lastPage
+            }
+
+        }
+    }
 }
 </script>
